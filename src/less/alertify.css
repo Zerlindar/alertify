@@ -1,0 +1,30 @@
+.alert-wrapper {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+}
+.alert-wrapper .alert-mask {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  opacity: .5;
+  background-color: #000;
+}
+.alert-wrapper .alert-body {
+  position: absolute;
+  width: 57%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align: center;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.alert-wrapper .alert-body .alert-alert {
+  display: inline-block;
+  padding: 1rem 0.3rem;
+}

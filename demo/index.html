@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/alertify.css" />
+</head>
+<body>
+<div class = "login-body">
+    <input type = "button" id = "btn1" value = "确认框"/>
+	<input type = "button" id = "btn2" value = "弹窗"/>
+</div>
+<script src = "js/jquery-3.0.0.min.js"></script>
+<script src = "js/alertify.js"></script>
+<script>
+    $("#btn1").click(function(){
+	alerty.alert({},function(){
+        console.log("ok");
+    },function(){
+        console.log("cancel!")
+    });
+	});
+	
+	$("#btn2").click(function(){
+	   alerty.blankModal("确定！");
+	   });
+    
+</script>
+</body>
+</html>

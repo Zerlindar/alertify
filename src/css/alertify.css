@@ -1,0 +1,108 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "微软雅黑";
+}
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.modal-wrapper .modal-mask {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  opacity: .5;
+  background-color: #000;
+}
+.modal-wrapper .modal-body {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  background: white;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.modal-wrapper .modal-body .modal-title {
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  font-size: 0.67rem;
+  font-weight: bold;
+  border-bottom: 1px solid #cecece;
+}
+.modal-wrapper .modal-body .modal-detail {
+  padding: 1rem 0;
+  font-size: 0.67rem;
+  text-align: center;
+}
+.modal-wrapper .modal-body .modal-btn {
+  font-size: 0;
+  height: 1.63rem;
+}
+.modal-wrapper .modal-body .modal-btn span {
+  display: inline-block;
+  width: 50%;
+  height: 1.63rem;
+  line-height: 1.63rem;
+  box-sizing: border-box;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 0.67rem;
+  color: white;
+  background: #4ea4f7;
+}
+.modal-wrapper .modal-body .modal-btn span.escCon {
+  color: #4ea4f7;
+  background: white;
+  position: relative;
+}
+.modal-wrapper .modal-body .modal-btn span.escCon:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  top: 0;
+  left: 0;
+  background: #cecece;
+}
+.alert-wrapper {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+}
+.alert-wrapper .alert-mask {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  opacity: .5;
+  background-color: #000;
+}
+.alert-wrapper .alert-body {
+  position: absolute;
+  width: 57%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align: center;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.alert-wrapper .alert-body .alert-alert {
+  display: inline-block;
+  padding: 1rem 0.3rem;
+}
