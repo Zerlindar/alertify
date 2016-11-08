@@ -32,7 +32,7 @@ gulp.task('help',function(){
  gulp.task('p',['min', 'less-min', 'js-min']);
 
 //开发环境输出
-gulp.task('default',['watch-less']);
+gulp.task('default',['watch-less', 'watch-js']);
 
 //监视编译js
 gulp.task('watch-js',function(){
@@ -49,14 +49,14 @@ gulp.task('min',function(){
         .pipe(stripDebug())  //去除console
         .pipe(uglify({outSourceMap:false}))  //压缩js
         .pipe(concat('plugin.min.js'))
-        .pipe(gulp.dest('static/project/wap/HouseRevision/js'));
+        .pipe(gulp.dest('demo/js'));
 });
 //jss编译，普通版（未压缩）
 gulp.task('js',function(){
     gulp.src(config.JS_WATCH)
         //.pipe(stripDebug())  //console
-        .pipe(concat('production.js'))
-        .pipe(gulp.dest('static/project/wap/HouseRevision/js'));
+        .pipe(concat('alertify.js'))
+        .pipe(gulp.dest('demo/js'));
 });
 //js编译，压缩版
 gulp.task('js-min',function(){
@@ -64,8 +64,8 @@ gulp.task('js-min',function(){
         .pipe(uglify({outSourceMap:false}))
         .pipe(stripDebug())  //去除console
         .pipe(uglify({outSourceMap:false}))  //压缩js
-        .pipe(concat('production.min.js'))
-        .pipe(gulp.dest('static/project/wap/HouseRevision/js'));
+        .pipe(concat('alertify.min.js'))
+        .pipe(gulp.dest('demo/js'));
 })
 //less编译，普通版（未压缩）
 gulp.task('less',function(){
@@ -81,8 +81,8 @@ gulp.task('less',function(){
 gulp.task('less-min',function(){
     gulp.src(config.LESS_WATCH)
         .pipe(less())
-        .pipe(gulp.dest('static/project/wap/HouseRevision/workspace/css'))
-        .pipe(concat('production.min.css'))
+        .pipe(gulp.dest('src/css'))
+        .pipe(concat('alertify.min.css'))
         .pipe(minifycss())
-        .pipe(gulp.dest('static/project/wap/HouseRevision/css'))
+        .pipe(gulp.dest('demo/css'))
 })

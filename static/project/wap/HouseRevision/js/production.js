@@ -25,7 +25,7 @@ function alertify() {
             html = '<div class = "modal-wrapper">' +
               '<div class="modal-mask"></div>' +
               '<div class="modal-body">' +
-              '<div class="modal-title">' + options.titleName + '</div>' +
+              '<div class="modal-title">标题</div>' +
               '<div class="modal-detail">' + options.content + '</div>' +
               '<div class="modal-btn">' +
               '<span class="okCon">' + options.okBtn + '</span>' +
