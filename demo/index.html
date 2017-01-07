@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>demo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" href="css/alertify.css" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/alertify.css"/>
 </head>
 <body>
-<div class = "login-body">
-    <input type = "button" id = "btn1" value = "确认框"/>
-	<input type = "button" id = "btn2" value = "弹窗"/>
+<div class="login-body">
+    <input type="button" id="btn1" value="确认框"/>
+    <input type="button" id="btn2" value="弹窗"/>
 </div>
-<script src = "js/jquery-3.0.0.min.js"></script>
-<script src = "js/alertify.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/alertify.js"></script>
 <script>
-    $("#btn1").click(function(){
-	alerty.alert({},function(){
-        console.log("ok");
-    },function(){
-        console.log("cancel!")
+    $("#btn1").click(function () {
+        alerty.confirm({}, function () {
+            console.log("ok");
+        }, function () {
+            console.log("cancel!")
+        });
     });
-	});
-	
-	$("#btn2").click(function(){
-	   alerty.blankModal("确定！");
-	   });
-    
+
+    $("#btn2").click(function () {
+        alerty.prompt({
+            title: true,
+            content: "这是一个操作啊！"
+        }, function(data){
+            console.log(data);
+        });
+    });
+
 </script>
 </body>
 </html>
