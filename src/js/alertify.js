@@ -6,7 +6,7 @@ function alertify() {
         var html = '<div class = "alert-wrapper"><div class = "alert-mask"></div><disv class = "alert-body"><div class = "alert-alert">' + title + '</div></disv></div>'
         $("body").append(html);
         setTimeout(function () {
-            $(".alert-wrapper").hide();
+            $(".alert-wrapper").remove();
         }, 1000)
     }
     this.confirm = function (opt, fn1, fn2) {
@@ -107,6 +107,23 @@ function alertify() {
         cls.on("click", function () {
             $(".modal-wrapper").remove();
         })
+    }
+    this.loading = function(){
+        var html = '<div class = "modal-wrapper">' +
+            '<div class = "alert-mask"></div><div class="loader">' +
+            '<div class="loader-inner line-scale">' +
+            '<div></div> ' +
+            '<div></div> ' +
+            '<div></div> ' +
+            '<div></div> ' +
+            '<div></div> ' +
+            '</div> ' +
+            '</div>' +
+            '</div>';
+        $("body").append(html);
+    }
+    this.closeAll = function(){
+        $(".modal-wrapper").remove();
     }
 }
 var alerty = new alertify();

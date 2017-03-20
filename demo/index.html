@@ -12,11 +12,57 @@
 <div class="login-body">
     <input type="button" id="btn1" value="确认框"/>
     <input type="button" id="btn2" value="弹窗"/>
+    <input type="button" id="btn3" value="提示框"/>
+    <input type="button" id="btn4" value="loading"/>
+    <input type="button" id="btn5" value="关闭所有"/>
 </div>
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/alertify.js"></script>
 <script>
+    var data = {
+        shopId: 1,
+        actType: "seckill"
+    };
+    function getHttps(url, type, data, func1, func2) {
+        function initObj(o) {  //清除为空数据
+            var _data = {};
+            for (var i in o) {
+                if ((o[i] && o[i] != "")|| (typeof o[i] == "number" && o[i] == 0)) {
+                    _data[i] = o[i];
+                }
+            }
+            return _data;
+        }
+        $.ajax({
+            url: url,
+            type: type,
+            dataType: 'json',
+            data: type == "GET" ? initObj(data) : data,
+            success: function (d) {
+                if (d.code == 200) {
+                    if (func1 && typeof func1 == "function") {
+                        func1.call(null, d);
+                    }
+                } else if(d.code == 602){
+                    $(".mask").show();
+                }else if(d.code == 300){
+                    location.href = d.url;
+                }else {
+                    alerty.blankModal(d.msg);
+                    if (func2 && typeof func2 == "function") {
+                        func2.call(null, d);
+                    }
+                }
+            },
+            error: function (d) {
+                alerty.blankModal(d.msg);
+            },
+        });
+    }
     $("#btn1").click(function () {
+        getHttps("https://sptest.mocentre.com/front/activity/getActivityIndex.htm", "POST", data, function(e){
+            console.log("getDataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: ", e);
+        })
         alerty.confirm({}, function () {
             console.log("ok");
         }, function () {
@@ -32,7 +78,18 @@
             console.log(data);
         });
     });
-
+    $("#btn3").click(function () {
+        alerty.blankModal("提示语提示语提示语提示语提示语提示语提示语！");
+    });
+    $("#btn4").click(function () {
+        alerty.loading();
+    });
+    $("#btn5").click(function () {
+        alerty.closeAll();
+    });
+    $("body").on("click", ".modal-wrapper", function(){
+        alerty.closeAll();
+    })
 </script>
 </body>
 </html>

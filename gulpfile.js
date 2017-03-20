@@ -9,7 +9,8 @@ var gulp = require('gulp'),      //gulp
     minifycss = require('gulp-minify-css'),    //压缩css
     sourcemaps = require('gulp-sourcemaps'),
     order = require('gulp-order'),             //按顺序合并js
-    stripDebug = require('gulp-strip-debug');   //debug
+    stripDebug = require('gulp-strip-debug'),   //debug
+    autoprefixer = require('gulp-autoprefixer');   //debug
 
 const config={
         JS_WATCH:['src/js/*.js'],
@@ -72,6 +73,9 @@ gulp.task('less',function(){
     gulp.src(config.LESS_WATCH)
         .pipe(sourcemaps.init())
         .pipe(less())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'Android >= 4.0'],
+        }))
         .pipe(gulp.dest('src/css'))
         .pipe(concat('alertify.css'))
         .pipe(sourcemaps.write())
@@ -81,6 +85,9 @@ gulp.task('less',function(){
 gulp.task('less-min',function(){
     gulp.src(config.LESS_WATCH)
         .pipe(less())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'Android >= 4.0'],
+        }))
         .pipe(gulp.dest('src/css'))
         .pipe(concat('alertify.min.css'))
         .pipe(minifycss())
